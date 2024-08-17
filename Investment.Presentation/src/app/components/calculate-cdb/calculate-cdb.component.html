@@ -1,0 +1,43 @@
+
+<div class="container w-25">
+  <div class="row justify-content-center font-weight">
+    <h3>
+      Calculadora CDB
+    </h3>
+  </div>
+  <div class="row mb-4">
+    <label for="initialAmount" class="col-form-label">Valor Inicial:</label>
+    <input type="text" name="text" placeholder="Valor Inicial" id="initialAmount" [(ngModel)]="initialAmount" class="form-control" />
+  </div>
+
+  <div class="row mb-4">
+    <label for="termInMonths" class="col-form-label">Prazo em Meses:</label>
+    <input type="text" name="text" placeholder="Prazo em Meses" id="termInMonths" [(ngModel)]="termInMonths" class="form-control" />
+  </div>
+  <div class="row mb-4 justify-content-center">
+    <button class="btn btn-primary btn-sm w-50" (click)="OnCalculate()">Calcular</button>
+  </div>
+  <div class="row mb-4 text-center" *ngIf="showResponse">
+
+    <div class="alert alert-success" *ngIf="hasSuccess" role="alert">
+      <div class="row">
+        <span>Valor Bruto:</span>
+        <span>
+          {{grossAmount}}
+        </span>
+      </div>
+      <div class="row">
+        <span>Valor Líquido:</span>
+        <span>
+          {{netAmount}}
+        </span>
+      </div>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="!hasSuccess" role="alert">
+      {{errorResponse}}
+    </div>
+
+
+  </div>
+</div>
